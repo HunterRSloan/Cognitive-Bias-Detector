@@ -1,62 +1,103 @@
-# Cognitive-Bias-Detector
-An advanced machine learning model that identifies cognitive biases in text using natural language processing and ensemble learning techniques.
-# Overview
-This project implements a sophisticated cognitive bias detection system that can identify seven different types of cognitive biases in text:
-Confirmation Bias
-Anchoring Bias
-Availability Bias
-Dunning-Kruger Effect
-Framing Bias
-Hindsight Bias
-Neutral (No bias)
-# Key Features
-Advanced Pattern Recognition: Utilizes sophisticated regex patterns and linguistic markers to identify bias-specific language patterns
-Dual TF-IDF Vectorization: Employs two TF-IDF vectorizers with different n-gram ranges for comprehensive feature extraction
-Ensemble Learning: Uses a Random Forest Classifier with optimized hyperparameters for robust bias classification
-Dynamic Confidence Thresholds: Implements bias-specific confidence thresholds with pattern-based adjustments
-Rich Feature Engineering: Combines TF-IDF features with custom pattern-based features for improved accuracy
-Comprehensive Preprocessing: Includes specialized text preprocessing with semantic token replacement and bias marker detection
-# Technical Details
-Built with Python using scikit-learn, NLTK, and pandas
-Implements cross-validation and out-of-bag score evaluation
-Features detailed visualization of confusion matrices and classification reports
-Includes model persistence functionality for easy deployment
-# Performance
-Achieves high precision and recall for major bias categories
-Implements sophisticated handling of edge cases and ambiguous predictions
-Uses stratified k-fold cross-validation for robust performance evaluation
-# Requirements
-Python 3.6+
-scikit-learn
-NLTK
-pandas
-numpy
-matplotlib
-seaborn
-# Usage
+# 🧠 Cognitive Bias Detector
+
+A machine learning–powered tool that identifies cognitive biases in text using natural language processing and ensemble classification. Built to support research, education, and content evaluation with insights grounded in psychological theory.
+
+---
+
+## 🔍 Overview
+
+The Cognitive Bias Detector is an AI model trained to detect **seven** cognitive biases from natural language input:
+
+- **Confirmation Bias**
+- **Anchoring Bias**
+- **Availability Bias**
+- **Dunning-Kruger Effect**
+- **Framing Bias**
+- **Hindsight Bias**
+- **Neutral** (no bias detected)
+
+This project combines statistical NLP with custom rule-based pattern recognition to deliver meaningful and interpretable results.
+
+---
+
+## 🚀 Key Features
+
+- **Dual TF-IDF Vectorization**: Combines two n-gram ranges for deeper linguistic analysis
+- **Ensemble Learning Model**: Uses a Random Forest classifier with hyperparameter optimization
+- **Regex Pattern Matching**: Detects psychologically informed markers and bias indicators
+- **Bias-Specific Confidence Thresholds**: Adjusted dynamically for each bias type
+- **Rich Feature Engineering**: Includes custom features that enhance prediction clarity
+- **Visual Insights**: Confusion matrices and classification reports for model interpretability
+- **Reusable API-like Module**: Easily integrated into other tools or pipelines
+
+---
+
+## 🛠️ Tech Stack
+
+- Python 3.6+
+- `scikit-learn`, `pandas`, `NLTK`, `numpy`
+- `matplotlib`, `seaborn` (for evaluation)
+- Model persistence using `joblib`
+
+---
+
+## 📈 Model Performance
+
+- High **precision and recall** across key bias categories
+- Robust handling of **ambiguous or borderline cases**
+- Evaluated using **stratified k-fold cross-validation**
+
+---
+
+## 💡 Example Usage
+
+```python
 from cognitive_bias_detector import CognitiveBiasDetector
 
-# Initialize the detector
 detector = CognitiveBiasDetector()
 
-# Make predictions
 text = "This new evidence perfectly confirms our existing beliefs"
 bias_type, confidence, top_2_classes, top_2_probs = detector.predict_bias(text)
 
-# Applications
-Content Analysis
-Research Validation
-Educational Tools
-Writing Assistance
-Decision-Making Support
-Social Media Analysis
-# Future Improvements
-Integration with web APIs
-Support for additional languages
-Real-time bias detection
-Enhanced pattern recognition
-Expanded bias categories
-# License
+print(bias_type, confidence)
+
+---
+
+## Applications
+
+- Academic research & validation
+
+- Social media content analysis
+
+- Writing assistance & journalism
+
+- Bias-aware decision making
+
+- Psychological and educational tools
+
+- Social Media Analysis
+
+---
+
+## Future Improvements
+- Deploy as a Gradio web app for public use
+
+- Add multilingual support (starting with Spanish + French)
+
+- Expand bias taxonomy to include 12–15 types
+
+- Integrate fine-tuned transformer models (e.g., BERT or RoBERTa)
+
+- Provide rewording or bias-neutral suggestions
+
+---
+
+## License
+
 MIT License
-# Contributing
+
+---
+
+## Contributing
+
 Contributions are welcome! Please feel free to submit a Pull Request.
