@@ -61,6 +61,7 @@ bias_type, confidence, top_2_classes, top_2_probs = detector.predict_bias(text)
 
 print(bias_type, confidence)
 
+```
 ---
 
 ## Applications
