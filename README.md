@@ -99,6 +99,13 @@ MIT License
 
 ---
 
+## Installation
+
+- pip install -r requirements.txt
+
+---
+
+
 ## Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
