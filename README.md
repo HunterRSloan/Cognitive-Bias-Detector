@@ -1,111 +1,72 @@
-# 🧠 Cognitive Bias Detector
+readme = r"""
 
-A machine learning–powered tool that identifies cognitive biases in text using natural language processing and ensemble classification. Built to support research, education, and content evaluation with insights grounded in psychological theory.
+🧠 Cognitive Bias Detector — Gradio Demo
 
----
+Classifies short text for likely cognitive biases (confirmation, anchoring, availability, Dunning–Kruger, framing, hindsight, or none) using:
 
-## 🔍 Overview
+TF-IDF features (1–3-grams)
 
-The Cognitive Bias Detector is an AI model trained to detect **seven** cognitive biases from natural language input:
+RandomForest classifier
 
-- **Confirmation Bias**
-- **Anchoring Bias**
-- **Availability Bias**
-- **Dunning-Kruger Effect**
-- **Framing Bias**
-- **Hindsight Bias**
-- **Neutral** (no bias detected)
+Regex-based pattern markers for explainability
 
-This project combines statistical NLP with custom rule-based pattern recognition to deliver meaningful and interpretable results.
+Status: Demo-quality. The bundled dataset is tiny and for illustration only.
 
----
+✨ Features
 
-## 🚀 Key Features
+Interactive UI (Gradio) with single text and batch CSV tabs
 
-- **Dual TF-IDF Vectorization**: Combines two n-gram ranges for deeper linguistic analysis
-- **Ensemble Learning Model**: Uses a Random Forest classifier with hyperparameter optimization
-- **Regex Pattern Matching**: Detects psychologically informed markers and bias indicators
-- **Bias-Specific Confidence Thresholds**: Adjusted dynamically for each bias type
-- **Rich Feature Engineering**: Includes custom features that enhance prediction clarity
-- **Visual Insights**: Confusion matrices and classification reports for model interpretability
-- **Reusable API-like Module**: Easily integrated into other tools or pipelines
+Shows class probabilities and detected pattern markers (e.g., confirmation_marker)
 
----
+Windows-friendly setup steps
 
-## 🛠️ Tech Stack
+Ready to deploy on Hugging Face Spaces
 
-- Python 3.6+
-- `scikit-learn`, `pandas`, `NLTK`, `numpy`
-- `matplotlib`, `seaborn` (for evaluation)
-- Model persistence using `joblib`
-
----
-
-## 📈 Model Performance
-
-- High **precision and recall** across key bias categories
-- Robust handling of **ambiguous or borderline cases**
-- Evaluated using **stratified k-fold cross-validation**
-
----
-
-## 💡 Example Usage
-
-```python
-from cognitive_bias_detector import CognitiveBiasDetector
-
-detector = CognitiveBiasDetector()
-
-text = "This new evidence perfectly confirms our existing beliefs"
-bias_type, confidence, top_2_classes, top_2_probs = detector.predict_bias(text)
-
-print(bias_type, confidence)
-
-```
----
-
-## Applications
-
-- Academic research & validation
-
-- Social media content analysis
-
-- Writing assistance & journalism
-
-- Bias-aware decision making
-
-- Psychological and educational tools
-
-- Social Media Analysis
-
----
-
-## Future Improvements
-- Deploy as a Gradio web app for public use
-
-- Add multilingual support (starting with Spanish + French)
-
-- Expand bias taxonomy to include 12–15 types
-
-- Integrate fine-tuned transformer models (e.g., BERT or RoBERTa)
-
-- Provide rewording or bias-neutral suggestions
-
----
-
-## License
-
-MIT License
-
----
-
-## Installation
-
-- pip install -r requirements.txt
-
----
+🖥️ Quickstart (Windows)
+Always show details
+py -m venv .venv
+.venv\Scripts\activate
+py -m pip install -r requirements.txt
+py app.py
 
 
-## Contributing
+The app prints a local URL (e.g., http://127.0.0.1:7860
+). Click to open.
 
-Contributions are welcome! Please feel free to submit a Pull Request.
+Temporary public link: edit the bottom of app.py to use demo.launch(share=True).
+
+📦 Batch CSV demo
+
+Use the included sample: batch_test_texts.csv (one column named text).
+In the Batch (CSV) tab, upload the file and download batch_predictions.csv.
+
+🚀 Deploy to Hugging Face Spaces
+
+Create a Space → SDK = Gradio.
+
+Upload app.py and requirements.txt (optional: README.md, batch_test_texts.csv).
+
+Commit. If NLTK downloads stall on first run, click Restart once.
+
+🧩 Project structure
+Always show details
+.
+├─ app.py
+├─ requirements.txt
+├─ batch_test_texts.csv
+├─ README.md
+├─ MODEL_CARD.md
+├─ CONTRIBUTING.md
+├─ CHANGELOG.md
+├─ LICENSE
+└─ .gitignore
+
+🧪 Notes
+
+Startup uses n_estimators=500 for snappy load. Increase to 1500–3000 for accuracy once deployed.
+
+The app currently trains on startup using the bundled examples. Swap in a larger dataset or load a pre-trained joblib for production.
+
+⚖️ License
+
+MIT
